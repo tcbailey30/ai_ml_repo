@@ -1,0 +1,101 @@
+## Airbnb Pricing Model
+### Project Goal: 
+- Given an Airbnb listing in Chicago, what isits fair nightly market price?
+
+### Phase 1: Acquire the Data
+The primary file will look something like: listings/csv from InsideAirbnb website
+
+### Phase 2: Exploratory Data Analysis (EDA)
+Before building the model, we will understand the data by answering questions like:
+- What does the price distribution look like?
+- Which neighborhoods are the most expensive?
+- How does price vary with bedrooms?
+- Does Superhose status increase price?
+- Do highly rated listings command a premium?
+- Which amenities matter most?
+
+We will procude many visulizations to gain a better picture of the data.
+
+### Phase 3: Data Cleaning
+We'll clean and prepare the data by:
+- Removing $ and commas from prices
+- Converting data types
+- Handling missing values
+- Removing duplicate listings
+- Filtering obvious outliers (e.g., $10,000/night)
+- Encoding categorical variables
+- Parsing the amenities field into usable features
+
+### Phase 4: Feature Engineering
+Potential engineered features include:
+
+#### 1. Geographic
+- Distance to downtown
+- Distance to airports
+- Distance to Lake Michigan
+- Distance to major attractions
+
+#### 2. Host Features
+- Host tenure
+- Superhost status
+- Number of listings managed
+
+#### 3. Listing Features
+- Amenities count
+- Bedrooms per guest
+- Bathrooms per guest
+- Minimum stay
+- Instant booking
+- Review density
+
+#### 4. Neighborhood Statistics
+- Average neighborhood price
+- Average review score
+- Average occupancy proxy
+- Listing density
+
+### Phase 5: Model
+We will start simple and build up.
+
+- Linear Regression - Baseline
+- Ridge Regression - Regularized linear model
+- Lasso Regression - Feature Selection
+- Decision Tree - Nonlinear Baseline
+- Random Forest - Strong Ensemble Model
+- Graident Boosting - Improved Ensemble
+- XGBoost - High-Performance Benchmark
+- LightGBM - Efficient Boosting
+- CatBoost - Execellent handling of categorical data
+
+We will compare all of them using the same train/test split and cross-validation
+
+### Phase 6: Model Evaluation
+We'll evaluate models using:
+
+- MAE (Mean Absolute Error): Average dollar error.
+- RMSE (Root Mean Squared Error): Penalizes large mistakes.
+- R²: Proportion of variance explained.
+- MAPE (Mean Absolute Percentage Error): Average percentage error.
+
+Our goal might be an MAE below $25–30 per night, though the achievable value depends on the quality and diversity of the data.
+
+### Phase 7: Discuss Model Results
+We'll answer questions like:
+
+- Why did the model predict $212/night?
+- Which features added value?
+- Which features reduced value?
+
+We'll use techniques such as SHAP to produce explanations for individual predictions and feature importance rankings.
+
+### Phase 8: Generalization
+Once we're satisfied with the Chicago model, we'll test whether it generalizes.
+
+- Examples:
+
+    - Train on Chicago → Test on Milwaukee
+    - Train on Chicago → Test on Indianapolis
+    - Train on Chicago → Test on St. Louis
+
+If performance drops significantly, we'll investigate domain differences and consider training on multiple cities simultaneously.
+
